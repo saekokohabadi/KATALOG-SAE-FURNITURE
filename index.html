@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>SAE Furniture — Perfect For You</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <meta name="description" content="Portfolio & katalog SAE Furniture — custom furniture, kitchen set, wardrobe, backdrop." />
+  <style>
+    .lb-backdrop{
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,.7);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      z-index:60;
+      padding:1rem;
+    }
+    .lb-content{
+      max-height:90%;
+      max-width:90%;
+      object-fit:contain;
+      border-radius:0.5rem;
+      box-shadow:0 4px 15px rgba(0,0,0,0.5);
+    }
+    .lb-btn{
+      position:absolute;
+      top:50%;
+      transform:translateY(-50%);
+      font-size:2rem;
+      color:white;
+      cursor:pointer;
+      user-select:none;
+      padding:0.5rem;
+      background:rgba(0,0,0,0.3);
+      border-radius:50%;
+    }
+    .lb-prev{left:1rem;}
+    .lb-next{right:1rem;}
+    .lb-close{position:absolute; top:1rem; right:1rem; font-size:2rem; color:white; cursor:pointer;}
+    .file-preview{max-height:140px; object-fit:contain;}
+    .wa-btn{position:fixed; right:18px; bottom:18px; z-index:70;}
+  </style>
+</head>
+<body class="antialiased text-gray-800 bg-gray-50">
+
+<!-- Header -->
+<header class="bg-white shadow">
+  <div class="max-w-6xl mx-auto px-6 py-6 flex items-center justify-between">
+    <div class="flex items-center gap-4">
+      <div class="w-12 h-12 bg-gray-200 rounded-md flex items-center justify-center font-bold">SAE</div>
+      <div>
+        <h1 class="text-lg font-semibold">SAE KOKOH ABADI</h1>
+        <p class="text-sm text-gray-500">Custom furniture • Elegan & Modern</p>
+      </div>
+    </div>
+    <div class="text-right text-sm">
+      <div id="phone-display">0877-8539-4998</div>
+      <div class="text-xs text-gray-500">saekokohabadi@gmail.com</div>
+    </div>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="bg-cover bg-center" style="background-image:url('images/hero/1.jpg')">
+  <div class="max-w-6xl mx-auto px-6 py-24 flex flex-col md:flex-row items-center gap-12 bg-black/40">
+    <div class="w-full md:w-1/2 text-white">
+      <h2 class="text-4xl font-extrabold leading-tight">Bring Nature Inside — Japandi & Modern</h2>
+      <p class="mt-4 text-gray-200">
+        SAE KOKOH ABADI hadir sejak 2022, membuat furniture custom dengan fokus pada kualitas, kekokohan, dan layanan terbaik. Setiap karya dirancang sesuai karakter ruang dan kebutuhan unik klien, mulai dari konsultasi hingga pemilihan bahan berkualitas. Dengan pendekatan personal ini, kami memastikan furniture tidak hanya indah dan fungsional, tetapi juga tahan lama dan memberi kepuasan maksimal bagi setiap klien.
+      </p>
+      <div class="mt-6 flex gap-3">
+        <a href="#portfolio" class="inline-block bg-amber-500 hover:bg-amber-600 text-white px-5 py-2 rounded-md">Lihat Portofolio</a>
+        <a href="#contact" class="inline-block border border-gray-300 px-5 py-2 rounded-md">Hubungi Kami</a>
+      </div>
+    </div>
+    <!-- Div gambar di sebelah kanan dihapus -->
+  </div>
+</section>
+
+<!-- Perfect For You -->
+<section class="max-w-6xl mx-auto px-6 py-12">
+  <h2 class="text-2xl font-bold mb-6">Perfect For You</h2>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <!-- Card 1 -->
+    <div class="bg-white p-6 rounded-lg shadow-sm">
+      <img src="images/perfect/1.jpg" class="w-full aspect-[3/4] object-cover rounded mb-4 cursor-pointer" onclick="openLightboxFromSrc('images/perfect/1.jpg')">
+      <h3 class="font-semibold">Kualitas</h3>
+      <p class="mt-2 text-sm text-gray-600">Komponen rapi dan bahan pilihan untuk hasil yang tahan lama.</p>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="bg-white p-6 rounded-lg shadow-sm">
+      <img src="images/perfect/2.jpg" class="w-full aspect-[3/4] object-cover rounded mb-4 cursor-pointer" onclick="openLightboxFromSrc('images/perfect/2.jpg')">
+      <h3 class="font-semibold">Elegan</h3>
+      <p class="mt-2 text-sm text-gray-600">Desain dibuat sesuai karakter ruang dan kebutuhan klien.</p>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="bg-white p-6 rounded-lg shadow-sm">
+      <img src="images/perfect/3.jpg" class="w-full aspect-[3/4] object-cover rounded mb-4 cursor-pointer" onclick="openLightboxFromSrc('images/perfect/3.jpg')">
+      <h3 class="font-semibold">Kenyamanan</h3>
+      <p class="mt-2 text-sm text-gray-600">Konsultasi, produksi, hingga finishing dan pemasangan.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Portfolio Grid -->
+<section id="portfolio" class="max-w-6xl mx-auto px-6 py-12">
+  <div class="flex items-center justify-between">
+    <h2 class="text-2xl font-bold">Our Portofolio</h2>
+    <p class="text-sm text-gray-500">Kitchen Set · Wardrobe · Backdrop</p>
+  </div>
+  <div id="product-grid" class="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+</section>
+
+<!-- Product Detail -->
+<section id="product-detail" class="hidden max-w-6xl mx-auto px-6 py-12"></section>
+
+<!-- Quote Contact -->
+<section id="contact" class="max-w-4xl mx-auto px-6 py-12">
+  <div class="bg-white rounded-lg shadow-sm p-8">
+    <h2 class="text-2xl font-bold">Konsultasi Sekarang</h2>
+    <p class="text-sm text-gray-600 mt-2">Anda dapat mengunggah gambar/foto referensi.</p>
+
+    <form id="quote-form" class="space-y-4 mt-6" enctype="multipart/form-data">
+      <div>
+        <label class="text-sm">Nama</label>
+        <input name="name" required class="w-full mt-1 border px-3 py-2 rounded-md">
+      </div>
+      <div>
+        <label class="text-sm">Email / No. WA</label>
+        <input name="contact" required class="w-full mt-1 border px-3 py-2 rounded-md">
+      </div>
+      <div>
+        <label class="text-sm">Deskripsi</label>
+        <textarea name="message" required class="w-full mt-1 border px-3 py-2 rounded-md" rows="4"></textarea>
+      </div>
+      <div>
+        <label class="text-sm">Unggah Gambar/Dokumen</label>
+        <input id="file-input" type="file" accept="image/*,.pdf" class="w-full mt-1">
+        <div id="file-preview" class="mt-2"></div>
+      </div>
+      <button class="bg-amber-500 text-white px-4 py-2 rounded-md">Kirim Request</button>
+    </form>
+  </div>
+</section>
+
+<!-- Lightbox -->
+<div id="lightbox-root" class="hidden"></div>
+
+<!-- WhatsApp Floating Button -->
+<a id="wa-link" class="wa-btn" target="_blank" rel="noopener">
+  <button class="flex items-center gap-2 bg-green-600 text-white px-4 py-3 rounded-full shadow-lg">
+    <span class="text-sm font-medium">Chat WA</span>
+  </button>
+</a>
+
+<script>
+const PHONE_INTERNATIONAL = '6287785394998';
+const PRODUCTS = [
+  {id:'kitchen',title:'Kitchen Set',desc:'Klik foto untuk lihat selengkapnya',folder:'images/products/kitchen',count:15},
+  {id:'wardrobe',title:'Wardrobe',desc:'Klik foto untuk lihat selengkapnya',folder:'images/products/wardrobe',count:14},
+  {id:'backdrop',title:'Backdrop',desc:'Klik foto untuk lihat selengkapnya',folder:'images/products/backdrop',count:14}
+];
+
+function renderGrid(){
+  const grid = document.querySelector('#product-grid');
+  grid.innerHTML = PRODUCTS.map(p=>`
+    <article class="bg-white rounded-lg shadow-sm overflow-hidden">
+      <button onclick="location.hash='${p.id}'" class="w-full text-left">
+        <img src="${p.folder}/1.jpg" class="w-full aspect-[3/4] object-cover rounded">
+        <div class="p-4">
+          <h3 class="font-semibold">${p.title}</h3>
+          <p class="mt-2 text-sm text-gray-600">${p.desc}</p>
+        </div>
+      </button>
+    </article>
+  `).join('');
+}
+
+let currentImages = [];
+let currentIndex = 0;
+
+function showProductDetail(id){
+  const p = PRODUCTS.find(x=>x.id===id);
+  if(!p) return;
+  const container = document.querySelector('#product-detail');
+  container.classList.remove('hidden');
+  document.querySelector('#portfolio').classList.add('hidden');
+
+  currentImages = [];
+  for(let i=1;i<=p.count;i++){
+    currentImages.push(`${p.folder}/${i}.jpg`);
+  }
+
+  let imagesHtml = currentImages.map((img, i)=>`
+    <img src="${img}" class="w-full aspect-[3/4] object-cover rounded cursor-pointer" onclick="openLightbox(${i})">
+  `).join('');
+
+  container.innerHTML = `
+    <button onclick="location.hash=''" class="text-sm text-gray-500 mb-4">← Kembali</button>
+    <div class="bg-white rounded-lg shadow-sm p-6">
+      <h2 class="text-2xl font-bold">${p.title}</h2>
+      <p class="mt-2 text-gray-600">${p.desc}</p>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-2 mt-4">${imagesHtml}</div>
+    </div>
+  `;
+}
+
+// Lightbox
+function openLightbox(index){
+  currentIndex = index;
+  renderLightbox();
+}
+
+function openLightboxFromSrc(src){
+  currentImages = [src];
+  currentIndex = 0;
+  renderLightbox();
+}
+
+function renderLightbox(){
+  const root = document.getElementById("lightbox-root");
+  const img = currentImages[currentIndex];
+  root.innerHTML = `
+    <div class='lb-backdrop'>
+      <span class='lb-close' onclick='closeLightbox()'>&times;</span>
+      ${currentImages.length>1 ? `<span class='lb-btn lb-prev' onclick='prevImage()'>&#10094;</span>
+      <span class='lb-btn lb-next' onclick='nextImage()'>&#10095;</span>` : ''}
+      <img src='${img}' class='lb-content'>
+    </div>
+  `;
+  root.classList.remove("hidden");
+}
+
+function closeLightbox(){
+  document.getElementById("lightbox-root").classList.add("hidden");
+  document.getElementById("lightbox-root").innerHTML = "";
+}
+
+function prevImage(){
+  currentIndex = (currentIndex-1+currentImages.length)%currentImages.length;
+  renderLightbox();
+}
+
+function nextImage(){
+  currentIndex = (currentIndex+1)%currentImages.length;
+  renderLightbox();
+}
+
+// File preview
+document.getElementById("file-input").addEventListener("change", (e)=>{
+  const preview = document.getElementById("file-preview");
+  preview.innerHTML = "";
+  const f = e.target.files[0];
+  if(!f) return;
+  const url = URL.createObjectURL(f);
+  if(f.type.startsWith("image/")){
+    preview.innerHTML = `<img src="${url}" class="file-preview rounded border">`;
+  } else {
+    preview.innerHTML = `<p class="text-sm">File: ${f.name}</p>`;
+  }
+});
+
+document.getElementById("quote-form").addEventListener("submit", (e)=>{
+  e.preventDefault();
+  const f = new FormData(e.target);
+  const name = f.get("name");
+  const contact = f.get("contact");
+  const message = f.get("message");
+  const filename = f.get("attachment") ? f.get("attachment").name : "";
+  const text = encodeURIComponent(`Permintaan penawaran dari ${name}\nKontak: ${contact}\nPesan: ${message}\nFile: ${filename}`);
+  window.open(`https://wa.me/${PHONE_INTERNATIONAL}?text=${text}`,'_blank');
+});
+
+function router(){
+  const h = location.hash.replace("#","");
+  if(!h){
+    document.querySelector('#product-detail').classList.add('hidden');
+    document.querySelector('#portfolio').classList.remove('hidden');
+    renderGrid();
+  } else {
+    showProductDetail(h);
+  }
+}
+
+window.addEventListener("hashchange", router);
+window.addEventListener("load", ()=>{router(); renderGrid();});
+</script>
+</body>
+</html>
