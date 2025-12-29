@@ -47,16 +47,12 @@
 
 <!-- Header -->
 <header class="bg-white shadow">
-  <div class="max-w-6xl mx-auto px-6 py-6 flex items-center justify-between">
+  <div class="max-w-6xl mx-auto px-6 py-6 flex items-end justify-between">
     <div class="flex items-center gap-4">
-      <div class="w-12 h-12 bg-gray-200 rounded-md flex items-center justify-center font-bold">SAE</div>
-      <div>
-        <h1 class="text-lg font-semibold">SAE KOKOH ABADI</h1>
-        <p class="text-sm text-gray-500">Custom furniture • Elegan & Modern</p>
-      </div>
+      <img src="images/logo.png" alt="SAE Logo" class="h-12 md:h-14 w-48 object-contain">
     </div>
-    <div class="text-right text-sm">
-      <div id="phone-display">0877-8539-4998</div>
+    <div class="text-right text-sm flex flex-col justify-center items-end">
+      <div id="phone-display" class="font-medium">0877-8539-4998</div>
       <div class="text-xs text-gray-500">saekokohabadi@gmail.com</div>
     </div>
   </div>
@@ -80,26 +76,46 @@
 </section>
 
 <!-- Perfect For You -->
-<section class="max-w-6xl mx-auto px-6 py-12">
+  <section class="max-w-6xl mx-auto px-6 py-12">
   <h2 class="text-2xl font-bold mb-6">Perfect For You</h2>
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+  <!-- Mobile carousel (swipe) -->
+  <div class="flex gap-4 overflow-x-auto pb-4 md:hidden px-2 snap-x snap-mandatory">
+    <div class="snap-start flex-none w-64 bg-white p-6 rounded-lg shadow-sm">
+      <img src="images/perfect/1.jpg" class="w-full h-40 object-cover rounded mb-4 cursor-pointer" onclick="openLightboxFromSrc('images/perfect/1.jpg')">
+      <h3 class="font-semibold">Kualitas</h3>
+      <p class="mt-2 text-sm text-gray-600">Komponen rapi dan bahan pilihan untuk hasil yang tahan lama.</p>
+    </div>
+    <div class="snap-start flex-none w-64 bg-white p-6 rounded-lg shadow-sm">
+      <img src="images/perfect/2.jpg" class="w-full h-40 object-cover rounded mb-4 cursor-pointer" onclick="openLightboxFromSrc('images/perfect/2.jpg')">
+      <h3 class="font-semibold">Elegan</h3>
+      <p class="mt-2 text-sm text-gray-600">Desain dibuat sesuai karakter ruang dan kebutuhan klien.</p>
+    </div>
+    <div class="snap-start flex-none w-64 bg-white p-6 rounded-lg shadow-sm">
+      <img src="images/perfect/3.jpg" class="w-full h-40 object-cover rounded mb-4 cursor-pointer" onclick="openLightboxFromSrc('images/perfect/3.jpg')">
+      <h3 class="font-semibold">Kenyamanan</h3>
+      <p class="mt-2 text-sm text-gray-600">Konsultasi, produksi, hingga finishing dan pemasangan.</p>
+    </div>
+  </div>
+
+  <!-- Grid for md+ -->
+  <div class="hidden md:grid grid-cols-3 gap-6">
     <!-- Card 1 -->
     <div class="bg-white p-6 rounded-lg shadow-sm">
-      <img src="images/perfect/1.jpg" class="w-full aspect-[3/4] object-cover rounded mb-4 cursor-pointer" onclick="openLightboxFromSrc('images/perfect/1.jpg')">
+      <img src="images/perfect/1.jpg" class="w-full h-48 sm:h-56 md:h-auto md:aspect-[3/4] object-cover rounded mb-4 cursor-pointer" onclick="openLightboxFromSrc('images/perfect/1.jpg')">
       <h3 class="font-semibold">Kualitas</h3>
       <p class="mt-2 text-sm text-gray-600">Komponen rapi dan bahan pilihan untuk hasil yang tahan lama.</p>
     </div>
 
     <!-- Card 2 -->
     <div class="bg-white p-6 rounded-lg shadow-sm">
-      <img src="images/perfect/2.jpg" class="w-full aspect-[3/4] object-cover rounded mb-4 cursor-pointer" onclick="openLightboxFromSrc('images/perfect/2.jpg')">
+      <img src="images/perfect/2.jpg" class="w-full h-48 sm:h-56 md:h-auto md:aspect-[3/4] object-cover rounded mb-4 cursor-pointer" onclick="openLightboxFromSrc('images/perfect/2.jpg')">
       <h3 class="font-semibold">Elegan</h3>
       <p class="mt-2 text-sm text-gray-600">Desain dibuat sesuai karakter ruang dan kebutuhan klien.</p>
     </div>
 
     <!-- Card 3 -->
     <div class="bg-white p-6 rounded-lg shadow-sm">
-      <img src="images/perfect/3.jpg" class="w-full aspect-[3/4] object-cover rounded mb-4 cursor-pointer" onclick="openLightboxFromSrc('images/perfect/3.jpg')">
+      <img src="images/perfect/3.jpg" class="w-full h-48 sm:h-56 md:h-auto md:aspect-[3/4] object-cover rounded mb-4 cursor-pointer" onclick="openLightboxFromSrc('images/perfect/3.jpg')">
       <h3 class="font-semibold">Kenyamanan</h3>
       <p class="mt-2 text-sm text-gray-600">Konsultasi, produksi, hingga finishing dan pemasangan.</p>
     </div>
@@ -108,11 +124,15 @@
 
 <!-- Portfolio Grid -->
 <section id="portfolio" class="max-w-6xl mx-auto px-6 py-12">
-  <div class="flex items-center justify-between">
+  <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
     <h2 class="text-2xl font-bold">Our Portofolio</h2>
     <p class="text-sm text-gray-500">Kitchen Set · Wardrobe · Backdrop</p>
   </div>
-  <div id="product-grid" class="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+  <!-- Mobile product carousel (swipe) -->
+  <div id="product-carousel" class="mt-6 flex gap-4 overflow-x-auto pb-4 md:hidden px-2 snap-x snap-mandatory"></div>
+
+  <!-- Grid for md+ -->
+  <div id="product-grid" class="mt-6 hidden md:grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
 </section>
 
 <!-- Product Detail -->
@@ -167,10 +187,12 @@ const PRODUCTS = [
 
 function renderGrid(){
   const grid = document.querySelector('#product-grid');
-  grid.innerHTML = PRODUCTS.map(p=>`
+  const carousel = document.querySelector('#product-carousel');
+
+  const gridHtml = PRODUCTS.map(p=>`
     <article class="bg-white rounded-lg shadow-sm overflow-hidden">
       <button onclick="location.hash='${p.id}'" class="w-full text-left">
-        <img src="${p.folder}/1.jpg" class="w-full aspect-[3/4] object-cover rounded">
+        <img src="${p.folder}/1.jpg" class="w-full h-48 sm:h-56 md:h-auto md:aspect-[3/4] object-cover rounded">
         <div class="p-4">
           <h3 class="font-semibold">${p.title}</h3>
           <p class="mt-2 text-sm text-gray-600">${p.desc}</p>
@@ -178,6 +200,21 @@ function renderGrid(){
       </button>
     </article>
   `).join('');
+
+  const carouselHtml = PRODUCTS.map(p=>`
+    <div class="snap-start flex-none w-64 bg-white rounded-lg shadow-sm overflow-hidden">
+      <button onclick="location.hash='${p.id}'" class="w-full text-left">
+        <img src="${p.folder}/1.jpg" class="w-full h-40 object-cover rounded">
+        <div class="p-4">
+          <h3 class="font-semibold">${p.title}</h3>
+          <p class="mt-2 text-sm text-gray-600">${p.desc}</p>
+        </div>
+      </button>
+    </div>
+  `).join('');
+
+  if(grid) grid.innerHTML = gridHtml;
+  if(carousel) carousel.innerHTML = carouselHtml;
 }
 
 let currentImages = [];
@@ -196,7 +233,7 @@ function showProductDetail(id){
   }
 
   let imagesHtml = currentImages.map((img, i)=>`
-    <img src="${img}" class="w-full aspect-[3/4] object-cover rounded cursor-pointer" onclick="openLightbox(${i})">
+    <img src="${img}" class="w-full h-48 sm:h-56 md:h-auto md:aspect-[3/4] object-cover rounded cursor-pointer" onclick="openLightbox(${i})">
   `).join('');
 
   container.innerHTML = `
